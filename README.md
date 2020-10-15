@@ -52,3 +52,62 @@ Ikuti perintah di aku.pengen.pw! Username dan password bisa didapatkan dari file
 - #### Screenshot
   ![soal5-1](/images/soal5-1.jpg)
   ![soal5-2](/images/soal5-2.jpg)
+  
+## Soal 6
+Seseorang menyimpan file zip melalui FTP dengan nama "Answer.zip". Simpan dan Buka file "Open This.pdf" di Answer.zip. Untuk mendapatkan password zipnya, temukan dalam file zipkey.txt (passwordnya adalah isi dari file txt tersebut).
+### Jawab
+- #### Display Filter
+  `ftp-data.command contains "STOR Answer.zip"`
+  `ftp-data.command contains "zipkey.txt"`
+- #### Penjelasan
+  Pertama-tama, dilakukan pencarian untuk data pengiriman file FTP dengan display filter pertama. Paket yang ditemukan pada display filter pertama kemudian dilakukan "Follow TCP Stream" untuk mendapatkan keseluruhan data dari semua paket untuk file tersebut. File ini dapat kemudian di-save sebagai ZIP. Kemudian, display filter kedua digunakan untuk mendapatkan data file kedua, zipkey.txt. Dengan cara yang sama, file dibuka untuk membaca datanya yang mengandung kode password ZIPnya, sehingga dapat dibuka.
+- #### Screenshot
+  ![soal6-1](/images/soal6-1.jpg)
+  ![soal6-2](/images/soal6-2.jpg)
+  ![soal6-3](/images/soal6-3.jpg)
+  
+## Soal 7
+Ada 500 file zip yang disimpan ke FTP Server dengan nama 1.zip, 2.zip, ..., 500.zip. Salah satunya berisi pdf yang berisi puisi. Simpan dan Buka file pdf tersebut.
+Your Super Mega Ultra Rare Hint = nama pdf-nya "Yes.pdf"
+### Jawab
+- #### Display Filter
+  `frame contains "Yes.pdf"`
+- #### Penjelasan
+  Suatu file apabila di-zip akan tetap memiliki data nama file apa saja yang berada di dalam zip tersebut. Maka, dengan melakukan pencarian langsung terhadap byte-byte paket, dapat ditemukan file yang membawa data Yes.pdf. Paket tersebut dapat menunjukkan file apa yang menampung Yes.pdf tersebut, maka dilakukan follow TCP Stream untuk mendownload data yang sesuai. Didapatkan nama file yaitu 473.zip.
+- #### Screenshot
+  ![soal7-1](/images/soal7-1.jpg)
+  ![soal7-2](/images/soal7-2.jpg)
+  
+## Soal 8
+Cari objek apa saja yang didownload (RETR) dari koneksi FTP dengan Microsoft FTP Service!
+### Jawab
+- #### Display Filter
+  `ftp.response.code == 220`
+  `ip.src == 198.246.117.106 and ftp-data.command contains "RETR"`
+- #### Penjelasan
+  Pertama dilakukan pencarian untuk paket-paket yang berisi pesan jawaban dari server-server FTP yang dihubungi, di mana pesan tersebut merupakan welcome message dari server dengan mencari kode response 220. Kemudian, dilakukan pencarian paket dengan IP yang sesuai, dan dengan syarat kedua yaitu paket membawa data yang berkaitan dengan perintah RETR. Ditemukan bahwa objek yang didownload adalah Readme.
+- #### Screenshot
+  ![soal8-1](/images/soal8-1.jpg)
+  ![soal8-2](/images/soal8-2.jpg)
+  
+## Soal 9
+Cari username dan password ketika login FTP pada localhost!
+### Jawab
+- #### Display Filter
+  `ftp.request.command == USER or ftp.request.command == PASS`
+- #### Penjelasan
+  Pencarian paket dilakukan dengan memfilter perintah FTP antara USER atau PASS, untuk mendapatkan username dan password FTP yang digunakan (dikirim sebagai request). Didapatkan username dhana dan password dhana123.
+- #### Screenshot
+  ![soal9-1](/images/soal9-1.jpg)
+  
+## Soal 10
+Cari file .pdf di wireshark lalu download dan buka file tersebut!
+clue: "25 50 44 46" 
+### Jawab
+- #### Display Filter
+  `frame contains "\x25\x50\x44\x46"`
+- #### Penjelasan
+  Pencarian paket dilakukan dengan secara langsung mencari paket yang datanya mengandung nilai hex 25 50 44 46, yang merupakan tanda bahwa terdapat data file PDF di dalam paket tersebut. Kemudian, dilakukan follow TCP stream untuk mendapatkan keseluruhan paket-paket yang digunakan dalam satu koneksi TCP ini, sehingga file dapat didownload secara utuh. File merupakan dokumen terkait undang-undang.
+- #### Screenshot
+  ![soal10-1](/images/soal10-1.jpg)
+  ![soal10-2](/images/soal10-2.jpg)
