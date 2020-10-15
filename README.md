@@ -111,3 +111,54 @@ clue: "25 50 44 46"
 - #### Screenshot
   ![soal10-1](/images/soal10-1.jpg)
   ![soal10-2](/images/soal10-2.jpg)
+
+## Soal 11
+Filter sehingga wireshark hanya mengambil paket yang mengandung port 21!
+### Jawab
+- #### Capture Filter
+  `port 21`
+- #### Penjelasan
+  Capture filter tersebut menangkap paket dengan tujuan maupun asal port 21 (FTP).
+- #### Screenshot
+  ![soal11-1](/images/soal11-1.jpg)
+
+## Soal 12
+Filter sehingga wireshark hanya mengambil paket yang berasal dari port 80!
+### Jawab
+- #### Capture Filter
+  `src port 80`
+- #### Penjelasan
+  Dengan kata kunci src maka dapat mengambil hanya yang berasal dari port 80 (HTTP).
+- #### Screenshot
+  ![soal12-1](/images/soal12-1.jpg)
+
+## Soal 13
+Filter sehingga wireshark hanya menampilkan paket yang menuju port 443!
+### Jawab
+- #### Capture Filter
+  `dst port 443`
+- #### Penjelasan
+  Dengan akta kunci dst maka dapat mengambil hanya yang menuju port 443 (HTTPS).
+- #### Screenshot
+  ![soal13-1](/images/soal13-1.jpg)
+
+## Soal 14
+Filter sehingga wireshark hanya mengambil paket yang berasal dari ip kalian!
+### Jawab
+- #### Capture Filter
+  `src port 192.168.1.11`
+- #### Penjelasan
+  Pertama, dilakukan pencarian untuk IP masing-masing dengan menggunakan Command Prompt dengan perintah `ipconfig`. Setelah didapat, dapat digunakan sebagai filter dengan kata kunci src untuk sumber.
+- #### Screenshot
+  ![soal14-1](/images/soal14-1.jpg)
+  ![soal14-2](/images/soal14-2.jpg)
+
+## Soal 15
+Filter sehingga wireshark hanya mengambil paket yang tujuannya ke monta.if.its.ac.id!
+### Jawab
+- #### Capture Filter
+  `dst host monta.if.its.ac.id`
+- #### Penjelasan
+  Menggunakan kata kunci dst untuk mencari paket dengan tujuan yang diberikan, dalam kasus ini monta.if.its.ac.id. Host tidak harus dalam bentuk IP.
+- #### Screenshot
+  ![soal15-1](/images/soal15-1.jpg)
