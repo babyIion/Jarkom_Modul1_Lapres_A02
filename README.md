@@ -146,7 +146,7 @@ Filter sehingga wireshark hanya menampilkan paket yang menuju port 443!
 Filter sehingga wireshark hanya mengambil paket yang berasal dari ip kalian!
 ### Jawab
 - #### Capture Filter
-  `src port 192.168.1.11`
+  `src host 192.168.1.11`
 - #### Penjelasan
   Pertama, dilakukan pencarian untuk IP masing-masing dengan menggunakan Command Prompt dengan perintah `ipconfig`. Setelah didapat, dapat digunakan sebagai filter dengan kata kunci src untuk sumber.
 - #### Screenshot
