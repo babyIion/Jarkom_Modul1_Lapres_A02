@@ -20,6 +20,7 @@ Simpan gambar "Tim_Kunjungan_Kerja_BAKN_DPR_RI_ke_Sukabumi141436.jpg"!
 - #### Screenshot
   ![soal2-1](/images/soal2-1.jpg)
   ![soal2-2](/images/soal2-2.jpg)
+  ![soal2-3](/images/Tim_Kunjungan_Kerja_BAKN_DPR_RI_ke_Sukabumi141436.jpg)
   
 ## Soal 3
 Cari username dan password ketika login di "ppid.dpr.go.id"!
